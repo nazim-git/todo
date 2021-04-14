@@ -39,9 +39,9 @@ app.route('/addTodo').post(function (req, res) {
 app.route('/todos').get(function (req, res) {
     Todo.find({}, function (err, todos) {
         if (!err)
-            res.json(todos);
+            res.status(200).json(todos);
         else
-            res.json(err);
+            res.status(400).json(err);
     });
 });
 
@@ -56,13 +56,13 @@ app.route('/todo/:id').get(function (req, res) {
 
 app.route('/updateTodo/:todo_id').post(function (req, res) {
     Todo.findOneAndUpdate({ _id: req.params.todo_id }, { $set: req.body })
-        .then(_ => res.json("Update sucessfull"))
+        .then(_ => res.status(200).json("Update sucessfull"))
         .catch(err => res.status(400).send(err))
 });
 
 app.route('/deleteTodo/:todo_id').delete(function (req, res) {
     Todo.remove({ _id: req.params.todo_id })
-        .then(_ => res.json("Delete sucessfull"))
+        .then(_ => res.status(200).json("Delete sucessfull"))
         .catch(err => res.status(400).send(err))
 });
 
