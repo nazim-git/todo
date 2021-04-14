@@ -12,10 +12,6 @@
   },
   "author": "nazim",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nazim-git/todo/issues"
-  },
-  "homepage": "https://github.com/nazim-git/todo#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
